@@ -21,7 +21,8 @@ app.get("/api/:code", async (req, res) => {
 
    try {
       const { data } = await axios.post(
-         `https://github.com/login/oauth/access_token?client_id=${client_id}&redirect_uri=https://github-oauth-test.vercel.app/login&client_secret=${client_secret}&code=${code}`
+         `https://github.com/login/oauth/access_token?client_id=${client_id}&client_secret=${client_secret}&code=${code}`
+         // `https://github.com/login/oauth/access_token?client_id=${client_id}&redirect_uri=https://github-oauth-test.vercel.app/login&client_secret=${client_secret}&code=${code}`
       );
 
       let params = new URLSearchParams(data);
