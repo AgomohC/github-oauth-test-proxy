@@ -37,12 +37,13 @@ app.get("/api/:code", async (req, res) => {
          if (response) {
             let repos = await axios(response.data.repos_url);
             repos = repos.data;
+            console.log(repos);
             return res.status(200).json({ repos });
          }
       }
    } catch (error) {
       console.log(error);
-      return res.status(error.code).json({ message: error.message });
+      return res.status(500).json({ message: "Something went wrong" });
    }
 });
 
